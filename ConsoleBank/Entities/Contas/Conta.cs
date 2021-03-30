@@ -1,6 +1,7 @@
 ﻿using ConsoleBank.Entities.Clientes;
 using ConsoleBank.Entities.Contas.Enums;
 using System;
+using System.Globalization;
 using System.Text;
 
 namespace ConsoleBank.Entities.Contas
@@ -52,10 +53,10 @@ namespace ConsoleBank.Entities.Contas
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"TipoConta: {this.Saldo}");
+            sb.AppendLine($"TipoConta: {this.TipoConta}");
             sb.AppendLine($"Nome: {Cliente.GetNomeCliente()}");
-            sb.AppendLine($"Saldo: {this.Saldo}");
-            sb.AppendLine($"Crédito: {this.Credito}");
+            sb.AppendLine($"Saldo: R$ {this.Saldo.ToString("F2", CultureInfo.InvariantCulture)}");
+            sb.AppendLine($"Crédito: R$ {this.Credito.ToString("F2", CultureInfo.InvariantCulture)}");
             return sb.ToString();
         }
     }
