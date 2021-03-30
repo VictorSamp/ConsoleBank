@@ -86,11 +86,12 @@ namespace ConsoleBank
         private static void InserirConta()
         {
             Console.WriteLine("Inserir nova conta");
+            Console.WriteLine("Atenção! Forneça inicialmente os dados do cliente.");
 
-            Console.Write("Digite o nome do cliente: ");
+            Console.Write("Digite o nome: ");
             string entradaNome = Console.ReadLine();
 
-            Console.Write("Digite o endereço do cliente: ");
+            Console.Write("Digite o endereço: ");
             string entradaEndereco = Console.ReadLine();
 
             Console.Write("Digite o número do telefone: ");
