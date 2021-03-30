@@ -1,20 +1,31 @@
-﻿using System;
+﻿using ConsoleBank.Entities.Pessoas;
+using System;
+using System.Text;
 
 namespace ConsoleBank.Entities.Contas
 {
     public abstract class Conta
     {
         private long NumeroConta { get; set; }
-        private string NomeCliente { get; set; }
+        private Pessoa Cliente { get; set; }
         private decimal Saldo { get; set; }
-        private decimal Credito { get; set; }
+        protected decimal Credito { get; set; }
 
-        protected Conta(long numeroConta, string nomeCliente, decimal saldo, decimal credito)
+        public Conta(Pessoa cliente)
         {
-            NumeroConta = numeroConta;
-            NomeCliente = nomeCliente;
-            Saldo = saldo;
-            Credito = credito;
+            NumeroConta = new Random().Next();
+            Cliente = cliente;
+            Saldo = 0m;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Numero da conta: {NumeroConta}");
+            sb.AppendLine($"Nome do Cliente: {Cliente.GetNome()}");
+            sb.AppendLine($"Saldo: {Saldo:0.00}");
+            sb.AppendLine($"Crédito: {Credito:0.00}");
+            return sb.ToString();
         }
     }
 }

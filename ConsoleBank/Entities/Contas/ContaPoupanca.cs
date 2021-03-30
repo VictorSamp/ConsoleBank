@@ -1,13 +1,13 @@
-﻿using System;
+﻿using ConsoleBank.Entities.Pessoas;
 
 namespace ConsoleBank.Entities.Contas
 {
     class ContaPoupanca : Conta
     {
-        public ContaPoupanca(long numeroConta, string nomeCliente, decimal saldo, decimal credito)
-            : base(numeroConta, nomeCliente, saldo, credito)
+        public ContaPoupanca(Pessoa cliente)
+            : base(cliente)
         {
-
+            Credito = 100m;
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using ConsoleBank.Entities.Pessoas;
 
 namespace ConsoleBank.Entities.Contas
 {
     class ContaCorrente : Conta
     {
-        public ContaCorrente(long numeroConta, string nomeCliente, decimal saldo, decimal credito)
-            : base(numeroConta, nomeCliente, saldo, credito)
+        public ContaCorrente(Pessoa cliente)
+            : base(cliente)
         {
-
+            Credito = 500m;
         }
     }
 }
