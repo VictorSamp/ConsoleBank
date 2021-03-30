@@ -1,11 +1,13 @@
-﻿namespace ConsoleBank.Entities.Contas
+﻿using System;
+
+namespace ConsoleBank.Entities.Contas
 {
     class ContaPoupanca : Conta
     {
-        public ContaPoupanca(long numeroConta, string nomeCliente, decimal saldo, decimal credito)
-            : base(nomeCliente, saldo)
+        public ContaPoupanca(long numeroConta, string nomeCliente, decimal saldo, decimal credito, DateTime dataCriacao)
+            : base(numeroConta, nomeCliente, saldo, credito, dataCriacao)
         {
-            _credito = 0m;
+
         }
     }
 }
