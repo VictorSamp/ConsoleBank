@@ -18,5 +18,22 @@ namespace ConsoleBank.Entities.Contas
             _credito = credito;
             _dataCriacao = DateTime.Now;
         }
+
+        public bool Sacar(decimal valor)
+        {
+            if (valor > _saldo + _credito)
+            {
+                Console.WriteLine("Saldo Insuficiente!");
+                return false;
+            }
+
+            _saldo -= valor;
+            return true;
+        }
+
+        public void Depositar(decimal valor)
+        {
+            _saldo += valor;
+        }
     }
 }
