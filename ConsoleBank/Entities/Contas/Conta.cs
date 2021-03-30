@@ -1,22 +1,24 @@
-﻿using ConsoleBank.Entities.Enums;
+﻿using ConsoleBank.Entities.Clientes;
+using ConsoleBank.Entities.Contas.Enums;
 using System;
+using System.Globalization;
 using System.Text;
 
-namespace ConsoleBank.Entities
+namespace ConsoleBank.Entities.Contas
 {
     public class Conta
     {
         private TipoConta TipoConta { get; set; }
         private double Saldo { get; set; }
         private double Credito { get; set; }
-        private string Nome { get; set; }
+        private Cliente Cliente { get; set; }
 
-        public Conta(TipoConta tipoConta, double saldo, double credito, string nome)
+        public Conta(TipoConta tipoConta, double saldo, double credito, Cliente cliente)
         {
             this.TipoConta = tipoConta;
             this.Saldo = saldo;
             this.Credito = credito;
-            this.Nome = nome;
+            this.Cliente = cliente;
         }
 
         public bool Sacar(double valorSaque)
@@ -28,7 +30,7 @@ namespace ConsoleBank.Entities
             }
             this.Saldo -= valorSaque;
 
-            Console.WriteLine($"Saldo atual da conta de {this.Nome} é {this.Saldo}");
+            Console.WriteLine($"Saldo atual da conta de {Cliente.GetNomeCliente()} é {this.Saldo}");
 
             return true;
         }
@@ -37,7 +39,7 @@ namespace ConsoleBank.Entities
         {
             this.Saldo += valorDeposito;
 
-            Console.WriteLine($"Saldo atual da conta de {this.Nome} é {this.Saldo}");
+            Console.WriteLine($"Saldo atual da conta de {Cliente.GetNomeCliente()} é {this.Saldo}");
         }
 
         public void Transferir(double valorTransferencia, Conta contaDestino)
@@ -51,10 +53,10 @@ namespace ConsoleBank.Entities
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"TipoConta: {this.Saldo}");
-            sb.AppendLine($"Nome: {this.Nome}");
-            sb.AppendLine($"Saldo: {this.Saldo}");
-            sb.AppendLine($"Crédito: {this.Credito}");
+            sb.AppendLine($"TipoConta: {this.TipoConta}");
+            sb.AppendLine($"Nome: {Cliente.GetNomeCliente()}");
+            sb.AppendLine($"Saldo: R$ {this.Saldo.ToString("F2", CultureInfo.InvariantCulture)}");
+            sb.AppendLine($"Crédito: R$ {this.Credito.ToString("F2", CultureInfo.InvariantCulture)}");
             return sb.ToString();
         }
     }
