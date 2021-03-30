@@ -1,40 +1,60 @@
 ﻿using System;
+using System.Text;
 
 namespace ConsoleBank.Entities
 {
     public class Conta
     {
-        private long NumeroConta { get; set; }
-        private string NomeCliente { get; set; }
-        private decimal Saldo { get; set; } = 0;
+        private TipoConta TipoConta { get; set; }
+        private double Saldo { get; set; }
+        private double Credito { get; set; }
+        private string Nome { get; set; }
 
-        public Conta()
+        public Conta(TipoConta tipoConta, double saldo, double credito, string nome)
         {
+            this.TipoConta = tipoConta;
+            this.Saldo = saldo;
+            this.Credito = credito;
+            this.Nome = nome;
         }
 
-        public Conta(string nomeCliente, decimal saldo)
+        public bool Sacar(double valorSaque)
         {
-            NumeroConta = new Random().Next();
-            NomeCliente = nomeCliente;
-            Saldo = saldo;
-        }
-
-        public bool Sacar(decimal valor)
-        {
-            if (valor > Saldo)
+            if (this.Saldo - valorSaque < (this.Credito * -1))
             {
                 Console.WriteLine("Saldo insuficiente!");
                 return false;
             }
+            this.Saldo -= valorSaque;
 
-            Saldo -= valor;
+            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+
             return true;
         }
 
-        public void Depositar(decimal valor)
+        public void Depositar(double valorDeposito)
         {
-            Saldo += valor;
+            this.Saldo += valorDeposito;
+
+            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
         }
 
+        public void Transferir(double valorTransferencia, Conta contaDestino)
+        {
+            if (this.Sacar(valorTransferencia))
+            {
+                contaDestino.Depositar(valorTransferencia);
+            }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"TipoConta: {this.Saldo}");
+            sb.AppendLine($"Nome: {this.Nome}");
+            sb.AppendLine($"Saldo: {this.Saldo}");
+            sb.AppendLine($"Crédito: {this.Credito}");
+            return sb.ToString();
+        }
     }
 }
