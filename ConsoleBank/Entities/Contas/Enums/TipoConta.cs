@@ -1,4 +1,4 @@
-﻿namespace ConsoleBank.Entities.Enums
+﻿namespace ConsoleBank.Entities.Contas.Enums
 {
     public enum TipoConta
     {

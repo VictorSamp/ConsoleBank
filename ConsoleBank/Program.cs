@@ -1,5 +1,6 @@
-﻿using ConsoleBank.Entities;
-using ConsoleBank.Entities.Enums;
+﻿using ConsoleBank.Entities.Clientes;
+using ConsoleBank.Entities.Contas;
+using ConsoleBank.Entities.Contas.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -86,11 +87,17 @@ namespace ConsoleBank
         {
             Console.WriteLine("Inserir nova conta");
 
+            Console.Write("Digite o nome do cliente: ");
+            string entradaNome = Console.ReadLine();
+
+            Console.Write("Digite o endereço do cliente: ");
+            string entradaEndereco = Console.ReadLine();
+
+            Console.Write("Digite o número do telefone: ");
+            string entradaTelefone = Console.ReadLine();
+
             Console.Write("Digite 1 para Conta Fisica ou 2 para Juridica: ");
             int entradaTipoConta = int.Parse(Console.ReadLine());
-
-            Console.Write("Digite o Nome do Cliente: ");
-            string entradaNome = Console.ReadLine();
 
             Console.Write("Digite o saldo inicial: ");
             double entradaSaldo = double.Parse(Console.ReadLine());
@@ -98,10 +105,13 @@ namespace ConsoleBank
             Console.Write("Digite o crédito: ");
             double entradaCredito = double.Parse(Console.ReadLine());
 
+            Cliente novoCliente = new Cliente(entradaNome, entradaEndereco, entradaTelefone);
+
             Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
                                         saldo: entradaSaldo,
                                         credito: entradaCredito,
-                                        nome: entradaNome);
+                                        cliente: novoCliente
+                                        );
 
             listContas.Add(novaConta);
         }
