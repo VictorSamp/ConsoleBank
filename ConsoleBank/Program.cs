@@ -1,10 +1,4 @@
-﻿using ConsoleBank.Entities.Contas;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ConsoleBank
+﻿namespace ConsoleBank
 {
     class Program
     {
