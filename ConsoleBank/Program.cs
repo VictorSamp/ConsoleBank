@@ -127,7 +127,7 @@ namespace ConsoleBank
         private static string ObterOpcaoUsuario()
         {
             Console.WriteLine();
-            Console.WriteLine("DIO Bank a seu dispor!!!");
+            Console.WriteLine("Bem vindo ao ConsoleBank!");
             Console.WriteLine("Informe a opção desejada:");
 
             Console.WriteLine("1- Listar contas");
