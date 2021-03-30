@@ -8,15 +8,13 @@ namespace ConsoleBank.Entities.Contas
         private string NomeCliente { get; set; }
         private decimal Saldo { get; set; }
         private decimal Credito { get; set; }
-        private DateTime DataCriacao { get; set; }
 
-        protected Conta(long numeroConta, string nomeCliente, decimal saldo, decimal credito, DateTime dataCriacao)
+        protected Conta(long numeroConta, string nomeCliente, decimal saldo, decimal credito)
         {
             NumeroConta = numeroConta;
             NomeCliente = nomeCliente;
             Saldo = saldo;
             Credito = credito;
-            DataCriacao = dataCriacao;
         }
     }
 }
