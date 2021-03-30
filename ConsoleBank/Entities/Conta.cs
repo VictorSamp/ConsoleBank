@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleBank.Entities.Enums;
+using System;
 using System.Text;
 
 namespace ConsoleBank.Entities

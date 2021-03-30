@@ -1,4 +1,5 @@
 ﻿using ConsoleBank.Entities;
+using ConsoleBank.Entities.Enums;
 using System;
 using System.Collections.Generic;
 
