@@ -3,7 +3,7 @@
     class ContaCorrente : Conta
     {
         public ContaCorrente(long numeroConta, string nomeCliente, decimal saldo, decimal credito)
-            : base(numeroConta, nomeCliente, saldo)
+            : base(nomeCliente, saldo)
         {
             _credito = 300m;
         }
