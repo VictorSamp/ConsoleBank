@@ -27,7 +27,7 @@ namespace ConsoleBank.Entities
             }
             this.Saldo -= valorSaque;
 
-            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+            Console.WriteLine($"Saldo atual da conta de {this.Nome} é {this.Saldo}");
 
             return true;
         }
@@ -36,7 +36,7 @@ namespace ConsoleBank.Entities
         {
             this.Saldo += valorDeposito;
 
-            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+            Console.WriteLine($"Saldo atual da conta de {this.Nome} é {this.Saldo}");
         }
 
         public void Transferir(double valorTransferencia, Conta contaDestino)
