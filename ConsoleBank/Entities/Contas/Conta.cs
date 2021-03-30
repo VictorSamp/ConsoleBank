@@ -10,7 +10,7 @@ namespace ConsoleBank.Entities.Contas
         protected decimal _credito { get; set; }
         private DateTime _dataCriacao { get; }
 
-        public Conta(long numeroConta, string nomeCliente, decimal saldo)
+        public Conta(string nomeCliente, decimal saldo)
         {
             _numeroConta = new Random().Next(0, 12000);
             _nomeCliente = nomeCliente;
